@@ -13,6 +13,7 @@ license-conflicting. Project license itself is undecided (MIT or Apache-2.0).
 | uvicorn | BSD-3-Clause | ASGI server |
 | Pillow | HPND (permissive) | Fixture generation now; all Phase 1 image modules later |
 | numpy | BSD-3-Clause | Fixture generation now; all analysis modules later |
+| c2pa-python 0.38.0 (native bindings, 15.3 MB wheel) | MIT OR Apache-2.0 (dual) | C2PA manifest validation in metadata_c2pa.py; verified on PyPI 2026-10-09, updated 2026-09-29 |
 | pytest | MIT | Tests (dev only) |
 | ruff | MIT | Lint/format (dev only) |
 | mypy | MIT | Type checking (dev only) |

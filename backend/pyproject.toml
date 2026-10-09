@@ -9,6 +9,7 @@ dependencies = [
   "uvicorn>=0.29",
   "pillow>=10.0",
   "numpy>=1.26",
+  "c2pa-python>=0.38",
 ]
 
 [project.optional-dependencies]
@@ -36,3 +37,9 @@ select = ["E", "F", "I", "UP", "B"]
 python_version = "3.11"
 strict = true
 show_error_codes = true
+
+# System Pillow ships without a py.typed marker; treat it as untyped import
+# only (our own annotations stay strict).
+[[tool.mypy.overrides]]
+module = ["PIL.*", "c2pa"]
+ignore_missing_imports = true
