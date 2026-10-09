@@ -3,3 +3,10 @@
 /PROMPTS.md
 /PROGRESS.md
 /opencode.json
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
