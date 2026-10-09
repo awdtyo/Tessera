@@ -1,0 +1,87 @@
+{
+  "overall_status": "suspicious",
+  "summary": "Found signs consistent with editing in 2 of 6 signals; 2 supported authenticity, 2 could not be determined.",
+  "agreed": ["ela", "double-jpeg"],
+  "disagreed": ["noise", "metadata-c2pa"],
+  "undetermined": ["fft", "copy-move"],
+  "findings": [
+    {
+      "module_id": "ela",
+      "module_name": "Compression-error check (ELA)",
+      "status": "suspicious",
+      "confidence_low": 0.55,
+      "confidence_high": 0.8,
+      "summary": "One region compresses very differently from the rest.",
+      "reasoning": "The lower-right region shows much higher re-save error than its surroundings, which is consistent with that area coming from a different image. The image was heavily recompressed, so treat this as a hint, not proof.",
+      "reliability": "unreliable",
+      "reliability_note": "Heavy recompression weakens this signal: quality-30 re-save blurs the differences ELA looks for.",
+      "has_heatmap": true,
+      "runtime_ms": 412
+    },
+    {
+      "module_id": "noise",
+      "module_name": "Noise-pattern check",
+      "status": "confirmed",
+      "confidence_low": 0.62,
+      "confidence_high": 0.78,
+      "summary": "Camera noise looks even across the image.",
+      "reasoning": "The fine-grained noise left by the camera sensor is uniform, with no patch that stands out. Even noise supports authenticity but cannot rule out careful editing.",
+      "reliability": "ok",
+      "reliability_note": "Good light, full-resolution image; signal is trustworthy here.",
+      "has_heatmap": false,
+      "runtime_ms": 688
+    },
+    {
+      "module_id": "fft",
+      "module_name": "Frequency-spectrum check",
+      "status": "cannot_determine",
+      "confidence_low": 0.0,
+      "confidence_high": 0.2,
+      "summary": "The spectrum was inconclusive.",
+      "reasoning": "No clear periodic fingerprints of splicing or AI generation stood out, but heavy recompression erases exactly those traces. Absence of evidence is not contradiction.",
+      "reliability": "degraded",
+      "reliability_note": "Recompression at quality 30 suppresses high-frequency traces.",
+      "has_heatmap": false,
+      "runtime_ms": 155
+    },
+    {
+      "module_id": "double-jpeg",
+      "module_name": "Double-save check",
+      "status": "suspicious",
+      "confidence_low": 0.5,
+      "confidence_high": 0.7,
+      "summary": "Save-history hints at two different JPEG pasts.",
+      "reasoning": "Background blocks carry the grid of an earlier save at a different quality than the foreground region, consistent with a composite assembled from two saves.",
+      "reliability": "ok",
+      "reliability_note": "Clear quantization grids on both sides of the seam.",
+      "has_heatmap": false,
+      "runtime_ms": 231
+    },
+    {
+      "module_id": "copy-move",
+      "module_name": "Copy-move check",
+      "status": "cannot_determine",
+      "confidence_low": 0.1,
+      "confidence_high": 0.35,
+      "summary": "No repeated regions found, inconclusively.",
+      "reasoning": "No duplicated blocks passed the match threshold, but smooth areas like sky defeat this comparison, so a careful clone could still hide.",
+      "reliability": "degraded",
+      "reliability_note": "Large smooth regions lower the match confidence.",
+      "has_heatmap": false,
+      "runtime_ms": 940
+    },
+    {
+      "module_id": "metadata-c2pa",
+      "module_name": "File-history check",
+      "status": "confirmed",
+      "confidence_low": 0.7,
+      "confidence_high": 0.9,
+      "summary": "File history and timestamps are internally consistent.",
+      "reasoning": "EXIF make, dimensions and chunk order agree with a single camera save, and there is no edit-software tag. Metadata is easy to forge, so this supports but never proves authenticity.",
+      "reliability": "ok",
+      "reliability_note": "Complete EXIF present; no C2PA manifest found (not a contradiction).",
+      "has_heatmap": false,
+      "runtime_ms": 12
+    }
+  ]
+}

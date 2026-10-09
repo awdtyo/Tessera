@@ -1,0 +1,81 @@
+/* Tessera design tokens. Dark is the default theme; light overrides below.
+   Serif-editorial style: Fraunces display, Inter UI, mono for hashes. */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --paper: #141311; /* warm near-black paper */
+  --paper-2: #1d1c19; /* raised surface */
+  --paper-3: #262522; /* tile surface */
+  --ink: #f0ead9; /* warm off-white text */
+  --ink-muted: #a89f88;
+  --line: #3a372f;
+
+  --accent: #4fae9f; /* verdigris */
+  --accent-ink: #0e1514;
+
+  --st-confirmed: #8fbf6e;
+  --st-confirmed-bg: rgba(143, 191, 110, 0.12);
+  --st-suspicious: #d08a4e;
+  --st-suspicious-bg: rgba(208, 138, 78, 0.13);
+  --st-undet: #9a93a8;
+  --st-undet-bg: rgba(154, 147, 168, 0.13);
+
+  --focus: #e8c476;
+  --radius: 14px;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --paper: #f6f2e8; /* warm off-white paper */
+  --paper-2: #efe9da;
+  --paper-3: #e7e0cf;
+  --ink: #23211b; /* deep ink */
+  --ink-muted: #6f695b;
+  --line: #d8d0bd;
+
+  --accent: #2e7f74;
+  --accent-ink: #f6f2e8;
+
+  --st-confirmed: #4a7a35;
+  --st-confirmed-bg: rgba(74, 122, 53, 0.1);
+  --st-suspicious: #a85f22;
+  --st-suspicious-bg: rgba(168, 95, 34, 0.1);
+  --st-undet: #6b6580;
+  --st-undet-bg: rgba(107, 101, 128, 0.12);
+
+  --focus: #8a5d00;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

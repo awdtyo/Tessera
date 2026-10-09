@@ -20,6 +20,19 @@ license-conflicting. Project license itself is undecided (MIT or Apache-2.0).
 License strings above are the commonly documented ones; re-verify with
 `pip show <pkg>` / package metadata before release.
 
+## Frontend dependencies (frontend/package.json, Phase 0 prototype)
+
+| Package | License | Why |
+|---|---|---|
+| react, react-dom | MIT | UI |
+| vite, @vitejs/plugin-react | MIT | Dev server + build |
+| typescript | Apache-2.0 | Typecheck |
+| tailwindcss, postcss, autoprefixer | MIT | Styling |
+| framer-motion | MIT | Purposeful tile motion (reduced-motion aware) |
+| Fraunces + Inter (Google Fonts, OFL-1.1) | OFL-1.1 | Serif-editorial type; loaded via link, not bundled |
+
+Re-verify with `npm view <pkg> license` before release.
+
 ## Model weights
 
 (none yet — Phase 1b will record code AND weight licenses here)
