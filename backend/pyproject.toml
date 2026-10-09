@@ -1,0 +1,36 @@
+[project]
+name = "tessera"
+version = "0.0.1"
+description = "Tessera: local-first forensic tool for images and video (many small pieces of evidence, one clear picture)"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110",
+  "pydantic>=2.0",
+  "uvicorn>=0.29",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.4",
+  "mypy>=1.10",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+show_error_codes = true
