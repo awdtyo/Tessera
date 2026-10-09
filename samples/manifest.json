@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "file": "fixtures/dev_real.png",
+      "category": "real",
+      "source": "synthetic (tessera samples/generate_fixtures.py)",
+      "license": "CC0-1.0 (generated locally by generate_fixtures.py; no rights reserved)",
+      "ground_truth": {
+        "manipulated": false
+      },
+      "split": "dev",
+      "width": 128,
+      "height": 128,
+      "sha256": "ca3daf0f480fd2f3bbc76316c3229cbb80c563980453fca0cb4982b391a59d37",
+      "notes": "Seeded gradient+noise; unedited reference."
+    },
+    {
+      "file": "fixtures/dev_splice.png",
+      "category": "splice",
+      "source": "synthetic (tessera samples/generate_fixtures.py)",
+      "license": "CC0-1.0 (generated locally by generate_fixtures.py; no rights reserved)",
+      "ground_truth": {
+        "manipulated": true,
+        "type": "splice",
+        "seam_x": 64
+      },
+      "split": "dev",
+      "width": 128,
+      "height": 128,
+      "sha256": "284dfacdd67226f106709596aff72e73295df911a3847a8f27f99c23ec8a8baa",
+      "notes": "Left half from seed-A image, right half from seed-B image; vertical seam at x=64."
+    },
+    {
+      "file": "fixtures/dev_copymove.png",
+      "category": "copy-move",
+      "source": "synthetic (tessera samples/generate_fixtures.py)",
+      "license": "CC0-1.0 (generated locally by generate_fixtures.py; no rights reserved)",
+      "ground_truth": {
+        "manipulated": true,
+        "type": "copy-move",
+        "copied_region": [
+          16,
+          16,
+          24,
+          24
+        ],
+        "pasted_at": [
+          80,
+          80
+        ]
+      },
+      "split": "dev",
+      "width": 128,
+      "height": 128,
+      "sha256": "6b7763618e07bc5bdd598936fc1476e6f224fbb62e6f6e2b81af09f51d8b6f32",
+      "notes": "24x24 block copied from (16,16) to (80,80) within the same image."
+    },
+    {
+      "file": "fixtures/dev_recompressed_q30.jpg",
+      "category": "whatsapp-recompressed",
+      "source": "synthetic (tessera samples/generate_fixtures.py)",
+      "license": "CC0-1.0 (generated locally by generate_fixtures.py; no rights reserved)",
+      "ground_truth": {
+        "manipulated": false,
+        "recompressed": true,
+        "jpeg_quality": 30
+      },
+      "split": "dev",
+      "width": 96,
+      "height": 96,
+      "sha256": "bde4f59386bb4be3b4e3c6f835795de18fd60498e3bfa3b7a5bab873c2569c97",
+      "notes": "Proxy for chat-app recompression: downscaled to 96px, JPEG quality 30."
+    },
+    {
+      "file": "fixtures/dev_video_real.gif",
+      "category": "video-real",
+      "source": "synthetic (tessera samples/generate_fixtures.py)",
+      "license": "CC0-1.0 (generated locally by generate_fixtures.py; no rights reserved)",
+      "ground_truth": {
+        "manipulated": false,
+        "frames": 8,
+        "format": "gif"
+      },
+      "split": "dev",
+      "width": 64,
+      "height": 64,
+      "sha256": "5e4f89d728b328f9cfb8f8695cb9bb945f72eb290c1873ae54cc1bc1722c9857",
+      "notes": "Single smooth motion; GIF placeholder until Phase 4 mp4 fixtures land."
+    },
+    {
+      "file": "fixtures/dev_video_spliced.gif",
+      "category": "video-spliced",
+      "source": "synthetic (tessera samples/generate_fixtures.py)",
+      "license": "CC0-1.0 (generated locally by generate_fixtures.py; no rights reserved)",
+      "ground_truth": {
+        "manipulated": true,
+        "type": "hard-cut",
+        "cut_at_frame": 4,
+        "frames": 8,
+        "format": "gif"
+      },
+      "split": "dev",
+      "width": 64,
+      "height": 64,
+      "sha256": "3cb2a530e27cdef07491c0e020d16247df0d65030cbdced5fe987103a1a708b6",
+      "notes": "Scene changes abruptly at frame 4; GIF placeholder until Phase 4 mp4 fixtures land."
+    },
+    {
+      "file": "fixtures/heldout_real.png",
+      "category": "real",
+      "source": "synthetic (tessera samples/generate_fixtures.py)",
+      "license": "CC0-1.0 (generated locally by generate_fixtures.py; no rights reserved)",
+      "ground_truth": {
+        "manipulated": false
+      },
+      "split": "heldout",
+      "width": 128,
+      "height": 128,
+      "sha256": "88b285b052ebdffb98ae6997d88fc799afd1b6247639b6906b04e55bcb6ad5b8",
+      "notes": "Seeded gradient+noise; unedited reference."
+    },
+    {
+      "file": "fixtures/heldout_splice.png",
+      "category": "splice",
+      "source": "synthetic (tessera samples/generate_fixtures.py)",
+      "license": "CC0-1.0 (generated locally by generate_fixtures.py; no rights reserved)",
+      "ground_truth": {
+        "manipulated": true,
+        "type": "splice",
+        "seam_x": 64
+      },
+      "split": "heldout",
+      "width": 128,
+      "height": 128,
+      "sha256": "068a1a33a9014043a27895b469cdebbd4f7c05b8f2a165465c0f736d32f7cffc",
+      "notes": "Left half from seed-A image, right half from seed-B image; vertical seam at x=64."
+    }
+  ]
+}
